@@ -14,7 +14,7 @@ export function About() {
       id="about"
       ref={ref}
       style={{
-        backgroundColor: 'var(--color-canvas)',
+        backgroundColor: 'var(--color-void)',
         padding: '120px 24px',
       }}
     >
@@ -47,8 +47,7 @@ export function About() {
                 fontFamily: 'var(--font-dm-mono)',
                 fontSize: '18px',
                 lineHeight: 1.7,
-                color: i === 2 ? 'var(--color-ink)' : 'var(--color-text-dark)',
-                fontWeight: i === 2 ? 500 : 400,
+                color: 'var(--color-muted)',
               }}
             >
               {para}

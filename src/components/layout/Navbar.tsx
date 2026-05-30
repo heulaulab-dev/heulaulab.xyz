@@ -25,6 +25,8 @@ export function Navbar() {
   return (
     <>
       <nav
+        role="navigation"
+        aria-label="Main navigation"
         style={{
           position: 'fixed',
           top: 0,
@@ -47,7 +49,6 @@ export function Navbar() {
           transition: 'background-color 300ms ease, border-color 300ms ease',
         }}
       >
-        {/* Logo — stays left, fades in on scroll */}
         <a
           href="#hero"
           style={{
@@ -55,15 +56,11 @@ export function Navbar() {
             fontSize: '22px',
             letterSpacing: '0.05em',
             color: 'var(--color-white)',
-            opacity: isNavScrolled ? 1 : 0,
-            transition: 'opacity 300ms ease',
-            pointerEvents: isNavScrolled ? 'auto' : 'none',
           }}
         >
           heulaulab
         </a>
 
-        {/* Desktop nav links — right side */}
         <ul
           style={{
             display: 'flex',
@@ -92,7 +89,6 @@ export function Navbar() {
           ))}
         </ul>
 
-        {/* Mobile menu button — right side */}
         <button
           className="flex md:hidden"
           onClick={() => setIsMobileOpen(true)}

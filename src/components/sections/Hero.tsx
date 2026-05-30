@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/Button'
 const HEADLINE = 'heulaulab'
 
 export function Hero() {
-  const [showCursor, setShowCursor] = useState(false)
+  const [isHovering, setIsHovering] = useState(false)
 
   const cursorX = useMotionValue(-100)
   const cursorY = useMotionValue(-100)
@@ -28,8 +28,8 @@ export function Hero() {
     <section
       id="hero"
       onMouseMove={handleMouseMove}
-      onMouseEnter={() => setShowCursor(true)}
-      onMouseLeave={() => setShowCursor(false)}
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
       style={{
         position: 'relative',
         minHeight: '100dvh',
@@ -123,12 +123,10 @@ export function Hero() {
         </motion.div>
       </motion.div>
 
-      {/* Custom cursor label */}
-      {showCursor && (
+      {isHovering && (
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 0.8 }}
           style={{
             position: 'fixed',
             top: 0,
@@ -145,42 +143,16 @@ export function Hero() {
             letterSpacing: '0.14em',
             textTransform: 'uppercase',
             color: 'var(--color-muted)',
-            background: 'rgba(10,10,10,0.7)',
+            background: 'rgba(10, 10, 10, 0.7)',
             backdropFilter: 'blur(8px)',
-            border: '1px solid rgba(255,255,255,0.08)',
+            border: '1px solid rgba(255, 255, 255, 0.08)',
             borderRadius: '4px',
             padding: '8px 14px',
           }}
         >
-          scroll to explore
+          heulaulab
         </motion.div>
       )}
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 0.6 }}
-        style={{
-          position: 'absolute',
-          bottom: '40px',
-          left: '50%',
-          transform: 'translateX(-50%)',
-          zIndex: 2,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          gap: '8px',
-        }}
-      >
-        <motion.div
-          animate={{ opacity: [0.4, 1, 0.4] }}
-          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-        >
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-            <path d="M10 4v12M4 10l6 6 6-6" stroke="var(--color-muted)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </motion.div>
-      </motion.div>
     </section>
   )
 }

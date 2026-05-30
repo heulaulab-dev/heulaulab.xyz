@@ -10,22 +10,18 @@ export const NAV_LINKS = [
 
 export const FEATURES = [
   {
-    index: '01',
     label: 'Interface Design',
     body: "Software that respects the user's intelligence.",
   },
   {
-    index: '02',
     label: 'Spatial Experience',
     body: 'Physical environments that change behavior.',
   },
   {
-    index: '03',
     label: 'Systems Thinking',
     body: 'Brand and product systems built to last.',
   },
   {
-    index: '04',
     label: 'Controlled Imperfection',
     body: 'The method behind every memorable thing we make.',
   },

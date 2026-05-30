@@ -71,26 +71,16 @@ export function Features() {
         >
           {FEATURES.map((feature) => (
             <motion.li
-              key={feature.index}
+              key={feature.label}
               variants={fadeUpVariants}
               style={{
-                borderTop: '1px solid var(--color-rule)',
+                borderTop: '1px solid rgba(255, 255, 255, 0.08)',
                 padding: '32px 0',
                 display: 'flex',
                 flexDirection: 'column',
                 gap: '12px',
               }}
             >
-              <span
-                style={{
-                  fontFamily: 'var(--font-dm-mono)',
-                  fontSize: '11px',
-                  letterSpacing: '0.12em',
-                  color: 'var(--color-muted)',
-                }}
-              >
-                {feature.index}
-              </span>
               <h3
                 style={{
                   fontFamily: 'var(--font-bebas)',
@@ -118,8 +108,8 @@ export function Features() {
           <motion.li
             variants={fadeUpVariants}
             style={{
-              borderTop: '1px solid var(--color-rule)',
-              borderBottom: '1px solid var(--color-rule)',
+              borderTop: '1px solid rgba(255, 255, 255, 0.08)',
+              borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
               padding: '32px 0',
             }}
           />

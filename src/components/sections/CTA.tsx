@@ -56,13 +56,11 @@ export function CTA() {
           animate={isInView ? 'visible' : 'hidden'}
           transition={{ delay: 0.2 }}
         >
-          <Button
-            variant="outline"
-            size="lg"
-            onClick={() => { window.location.href = 'mailto:hello@heulaulab.xyz' }}
-          >
-            Start a project
-          </Button>
+          <a href="mailto:hello@heulaulab.xyz">
+            <Button variant="outline" size="lg">
+              Start a project
+            </Button>
+          </a>
         </motion.div>
       </div>
     </section>
