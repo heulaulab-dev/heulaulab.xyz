@@ -37,14 +37,17 @@ export function Navbar() {
           justifyContent: 'space-between',
           padding: '0 32px',
           backgroundColor: isNavScrolled
-            ? 'var(--color-ink)'
+            ? 'rgba(10, 10, 10, 0.6)'
             : 'transparent',
+          backdropFilter: isNavScrolled ? 'blur(20px) saturate(180%)' : 'none',
+          WebkitBackdropFilter: isNavScrolled ? 'blur(20px) saturate(180%)' : 'none',
           borderBottom: isNavScrolled
-            ? '1px solid var(--color-rule)'
+            ? '1px solid rgba(255, 255, 255, 0.06)'
             : '1px solid transparent',
           transition: 'background-color 300ms ease, border-color 300ms ease',
         }}
       >
+        {/* Logo — stays left, fades in on scroll */}
         <a
           href="#hero"
           style={{
@@ -52,11 +55,15 @@ export function Navbar() {
             fontSize: '22px',
             letterSpacing: '0.05em',
             color: 'var(--color-white)',
+            opacity: isNavScrolled ? 1 : 0,
+            transition: 'opacity 300ms ease',
+            pointerEvents: isNavScrolled ? 'auto' : 'none',
           }}
         >
           heulaulab
         </a>
 
+        {/* Desktop nav links — right side */}
         <ul
           style={{
             display: 'flex',
@@ -85,6 +92,7 @@ export function Navbar() {
           ))}
         </ul>
 
+        {/* Mobile menu button — right side */}
         <button
           className="flex md:hidden"
           onClick={() => setIsMobileOpen(true)}

@@ -1,15 +1,35 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
+import { useState } from 'react'
 import { staggerContainer, wordRevealVariants, ctaVariants } from '@/lib/motion'
 import { Button } from '@/components/ui/Button'
 
 const HEADLINE = 'heulaulab'
 
 export function Hero() {
+  const [showCursor, setShowCursor] = useState(false)
+
+  const cursorX = useMotionValue(-100)
+  const cursorY = useMotionValue(-100)
+
+  const springX = useSpring(cursorX, { stiffness: 150, damping: 18 })
+  const springY = useSpring(cursorY, { stiffness: 150, damping: 18 })
+
+  const offsetX = useTransform(springX, [-1000, 1000], [-12, 12])
+  const offsetY = useTransform(springY, [-1000, 1000], [-6, 6])
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
+    cursorX.set(e.clientX)
+    cursorY.set(e.clientY)
+  }
+
   return (
     <section
       id="hero"
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setShowCursor(true)}
+      onMouseLeave={() => setShowCursor(false)}
       style={{
         position: 'relative',
         minHeight: '100dvh',
@@ -20,10 +40,13 @@ export function Hero() {
         justifyContent: 'center',
         padding: '120px 24px 80px',
         overflow: 'hidden',
+        cursor: 'none',
       }}
       className="grain"
     >
-      <div style={{ position: 'relative', zIndex: 2, textAlign: 'center', maxWidth: '900px' }}>
+      <motion.div
+        style={{ position: 'relative', zIndex: 2, textAlign: 'center', maxWidth: '900px', x: offsetX, y: offsetY }}
+      >
         <motion.p
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -98,7 +121,40 @@ export function Hero() {
             </svg>
           </Button>
         </motion.div>
-      </div>
+      </motion.div>
+
+      {/* Custom cursor label */}
+      {showCursor && (
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.8 }}
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            x: springX,
+            y: springY,
+            translateX: '-50%',
+            translateY: '-50%',
+            pointerEvents: 'none',
+            zIndex: 9999,
+            whiteSpace: 'nowrap',
+            fontFamily: 'var(--font-dm-mono)',
+            fontSize: '11px',
+            letterSpacing: '0.14em',
+            textTransform: 'uppercase',
+            color: 'var(--color-muted)',
+            background: 'rgba(10,10,10,0.7)',
+            backdropFilter: 'blur(8px)',
+            border: '1px solid rgba(255,255,255,0.08)',
+            borderRadius: '4px',
+            padding: '8px 14px',
+          }}
+        >
+          scroll to explore
+        </motion.div>
+      )}
 
       <motion.div
         initial={{ opacity: 0 }}
