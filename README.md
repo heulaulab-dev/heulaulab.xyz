@@ -8,7 +8,7 @@ Bold, cinematic landing page for heulaulab — a multidisciplinary design lab wo
 - **Styling:** Tailwind CSS v4 + CSS custom properties (design tokens from `DESIGN.md`)
 - **State:** Zustand — nav scroll state
 - **Animation:** Framer Motion — scroll-triggered reveals, stagger, grain texture
-- **Fonts:** Bebas Neue (display headlines) · DM Mono (body/UI)
+- **Fonts:** Geist (all text — display + body/UI)
 
 ## Design Decisions
 
