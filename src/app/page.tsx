@@ -1,17 +1,15 @@
 import { Navbar } from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
-import { Hero } from '@/components/sections/Hero'
-import WorksSection from '@/components/sections/WorksSection'
 import { About } from '@/components/sections/About'
 import { Features } from '@/components/sections/Features'
 import { CTA } from '@/components/sections/CTA'
+import { DynamicSections } from '@/components/DynamicSections'
 
 export default function Home() {
   return (
     <main>
       <Navbar />
-      <Hero />
-      <WorksSection />
+      <DynamicSections />
       <About />
       <Features />
       <CTA />

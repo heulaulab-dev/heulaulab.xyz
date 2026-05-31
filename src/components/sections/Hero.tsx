@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/Button'
 
 const HEADLINE = 'heulaulab'
 
-export function Hero() {
+const Hero = () => {
   const [isHovering, setIsHovering] = useState(false)
 
   const cursorX = useMotionValue(-100)
@@ -156,3 +156,5 @@ export function Hero() {
     </section>
   )
 }
+
+export default Hero

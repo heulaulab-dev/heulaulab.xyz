@@ -20,14 +20,6 @@ export function Features() {
       className="grain"
     >
       <div
-        style={{
-          maxWidth: '1100px',
-          margin: '0 auto',
-          display: 'grid',
-          gridTemplateColumns: '1fr 1.5fr',
-          gap: '80px',
-          alignItems: 'start',
-        }}
         className="features-grid"
       >
         <div>
@@ -116,14 +108,6 @@ export function Features() {
         </motion.ul>
       </div>
 
-      <style>{`
-        @media (max-width: 768px) {
-          .features-grid {
-            grid-template-columns: 1fr !important;
-            gap: 48px !important;
-          }
-        }
-      `}</style>
-    </section>
+      </section>
   )
 }

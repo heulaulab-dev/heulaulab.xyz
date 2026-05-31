@@ -2,20 +2,20 @@
 
 import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useLandingStore } from '@/store/useLandingStore'
 import { NAV_LINKS } from '@/lib/constants'
 
 export function Navbar() {
-  const { isNavScrolled, setNavScrolled } = useLandingStore()
+  const [isNavScrolled, setNavScrolled] = useState(false)
   const [isMobileOpen, setIsMobileOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
       setNavScrolled(window.scrollY > 80)
     }
+    handleScroll()
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [setNavScrolled])
+  }, [])
 
   useEffect(() => {
     document.body.style.overflow = isMobileOpen ? 'hidden' : ''

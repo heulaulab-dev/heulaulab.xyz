@@ -108,6 +108,23 @@ button {
   outline-offset: 3px;
 }
 
+/* ─── Features Grid ─────────────────────────────────────────── */
+.features-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 80px;
+  align-items: start;
+}
+
+@media (max-width: 768px) {
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
 /* ─── Typography ────────────────────────────────────────────── */
 .font-bebas {
   font-family: var(--font-bebas), sans-serif;
@@ -160,6 +177,7 @@ button {
 @media (prefers-reduced-motion: reduce) {
 	.work-body { animation: none; opacity: 1; }
 }
+
 .grain::before {
   content: '';
   position: absolute;
@@ -170,11 +188,4 @@ button {
   opacity: 0.06;
   pointer-events: none;
   z-index: 1;
-}
-
-/* ─── Typography ────────────────────────────────────────────── */
-.font-bebas {
-  font-family: var(--font-bebas), sans-serif;
-  line-height: 1.05;
-  letter-spacing: 0.01em;
 }
