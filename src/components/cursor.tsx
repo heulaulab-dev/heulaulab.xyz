@@ -9,6 +9,9 @@ export function Cursor() {
   const [isHovering, setIsHovering] = useState(false);
   const [isClicking, setIsClicking] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
 
   // Spring-damped cursor position
   const springX = useSpring(mouseX, { stiffness: 600, damping: 28 });
@@ -54,7 +57,7 @@ export function Cursor() {
     };
   }, [mouseX, mouseY, isVisible]);
 
-  if (typeof window === "undefined") return null;
+  if (!mounted) return null;
 
   return (
     <>
