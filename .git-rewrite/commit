@@ -1,0 +1,13 @@
+tree 6e19f53575b34a84fbf66c57a736a7af09b0d5dd
+parent 304927516f50d096a408837af50154bc0804bc0f
+author Tazkiya Anafsi Al Mujahid <tazkiyadigitalarchive@gmail.com> 1780212555 +0700
+committer Tazkiya Anafsi Al Mujahid <tazkiyadigitalarchive@gmail.com> 1780212555 +0700
+
+Initial rewrite/v2: Next.js 16 + Tailwind v4 landing page
+
+- Next.js 16 with App Router, TypeScript
+- Tailwind CSS v4 with CSS-first theming
+- Syne + DM Sans + DM Mono font stack
+- acid yellow (#e8ff47) accent on near-black
+- Hero, Work bento grid, Manifesto, Marquee, Contact, Footer
+- Scroll-driven parallax, motion/react animations
